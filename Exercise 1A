@@ -1,0 +1,16 @@
+  /*
+    We’re working with a server that has 27 databases. 
+We have a dbo.Products table in a Widgets database with columns ProductId, ProductName, Description, Price, and Created, which is a datetime field.
+
+Exercise #1: Write a query to return the id and name for products that cost more than $10.99 and contain the word "waffle" in the description.
+    */
+
+SELECT 
+    ProductID, ProductName
+FROM
+    dbo.Products
+WHERE
+    Price > 10.99
+AND
+    Description = %waffle%
+;
