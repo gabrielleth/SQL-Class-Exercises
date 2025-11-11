@@ -1,0 +1,16 @@
+ /*
+    We’re working with a server that has 27 databases. 
+We have a dbo.Products table in a Widgets database with columns ProductId, ProductName, Description, Price, and Created, which is a datetime field.
+
+Exercise #2: Write a query to return the 5 most expensive product names and filter out any descriptions that are not populated by printable data. 
+Return only the product name and description.    */
+
+SELECT TOP 5
+    ProductName, Description
+FROM
+    dbo.Products
+WHERE
+    Description != ''
+ORDER BY
+    Price DESC
+;
