@@ -1,0 +1,24 @@
+ /*
+    We’re working with a server that has 27 databases. 
+We have a dbo.Products table in a Widgets database with columns ProductId, ProductName, Description, Price, and Created, which is a datetime field.
+
+Bonus: We have a new marketing director who wants to rename products in our “sweet-spot” pricing to be even more unique. 
+They are focused only on newer products, so filter products newer than our sales quarter ending 9/1/2022. 
+Write a query to return products that are priced from $8 to $27 whose product names end with the letters "er". i.e. “Cheese Hammer”. 
+Sort it by highest price, first, and then product name in alphabetical order. Exclude NULL descriptions and any products that were created before the sales quarter cutoff.
+    */
+
+
+SELECT DISTINCT
+    *, ProductName AS 'sweet-spot'
+FROM
+    dbo.Products
+WHERE 
+    Price BETWEEN 8 AND 27
+    AND
+    ProductName = %er
+    AND
+    Created > '9/1/2022'
+ORDER BY
+    Price DESC, ProductName ASC
+;
